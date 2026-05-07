@@ -1,0 +1,42 @@
+# Data files (download from Kaggle — see README)
+Dataset/
+
+# Generated outputs
+olist_rfm_scored.csv
+*.csv
+
+# Virtual environment
+venv_olist/
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Personal study notes
+WALKTHROUGH.md
+
+# Old Notebook
+OLIST Project.ipynb
