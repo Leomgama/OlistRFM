@@ -21,7 +21,7 @@ This project applies **RFM (Recency, Frequency, Monetary) analysis** to ~96,000 
 | Delivered orders analyzed | 96,477 |
 | Unique customers | 93,357 |
 | Total delivered revenue | R$ 15,422,462 |
-| Date range | 2016-10-03 → 2018-08-29 |
+| Date range | 2016-10-03 to 2018-08-29 |
 | Repeat-buyer rate | 3.0% |
 | Total addressable opportunity | **R$ 1,884,820** |
 
@@ -29,11 +29,11 @@ This project applies **RFM (Recency, Frequency, Monetary) analysis** to ~96,000 
 
 ## Key Findings
 
-1. **R$ 3.16M of revenue is "At Risk"** — customers who spent ~R$ 438 on average but haven't returned in ~13 months. Even a conservative 5% win-back recovers ~R$ 158K with a single targeted campaign.
-2. **The largest single play is converting Potential Loyalist into repeat buyers (R$ 634K)** — 7,232 customers who bought ~3 months ago at R$ 439 average ticket; warm and ready for a second-purchase nudge.
-3. **Champions are 0.8% of customers but generate the highest per-customer value (R$ 452 avg ticket, F = 2.25)** — VIP retention is the most efficient marketing spend per real.
-4. **Geographic concentration is extreme** — top 5 states (SP, RJ, MG, RS, PR) hold 73% of revenue.
-5. **97% of customers are single-purchase** — Olist's retention engine is the biggest untapped lever.
+1. **R$ 3.16M of revenue is "At Risk".** Customers who spent ~R$ 438 on average but haven't returned in ~13 months. Even a conservative 5% win-back recovers ~R$ 158K with a single targeted campaign.
+2. **The largest single play is converting Potential Loyalist into repeat buyers (R$ 634K).** 7,232 customers who bought ~3 months ago at R$ 439 average ticket. They're warm and ready for a second-purchase nudge.
+3. **Champions are 0.8% of customers but generate the highest per-customer value** (R$ 452 avg ticket, F = 2.25). Retaining one Champion is worth roughly 5 new acquisitions.
+4. **Geographic concentration is extreme.** Top 5 states (SP, RJ, MG, RS, PR) hold 73% of revenue.
+5. **97% of customers are single-purchase.** Repeat-purchase conversion is the biggest opportunity in the funnel.
 
 ---
 
@@ -45,15 +45,15 @@ This project applies **RFM (Recency, Frequency, Monetary) analysis** to ~96,000 
 - Aggregated split-payment rows in `order_payments` to one total per `order_id`
 
 ### Two Scoring Methods, Side by Side
-- **Method A — Rank-weighted RFM score** (per the GeeksforGeeks reference): rank each dimension, normalize 0–100, weighted average (15% R, 28% F, 57% M), scaled to 0–5
-- **Method B — Quintile R/F/M with the 11 standard segments** (industry standard): Recency and Monetary as quintiles via `pd.qcut`, Frequency via custom bins (because 97% of customers have F=1), then a (R × FM) rule grid assigns one of 11 named segments (Champions, Loyal, At Risk, Lost, etc.)
+- **Method A. Rank-weighted RFM score** (per the GeeksforGeeks reference): rank each dimension, normalize 0–100, weighted average (15% R, 28% F, 57% M), scaled to 0–5
+- **Method B. Quintile R/F/M with the 11 standard segments** (industry standard): Recency and Monetary as quintiles via `pd.qcut`, Frequency via custom bins (because 97% of customers have F=1), then a (R × FM) rule grid assigns one of 11 named segments (Champions, Loyal, At Risk, Lost, etc.)
 
 ### Enhanced Analyses
 - **KMeans (k=4)** on log-transformed and standardized R/F/M as a sanity check against the rule-based segmentation
-- **CLV proxy** — Avg Order Value × Frequency × Recency-decay factor — ranks individual customers
-- **Cohort retention heatmap** — % of each acquisition cohort active in subsequent months
-- **Geographic distribution** — segment composition across Brazilian states
-- **Category mix per segment** — what each segment buys most
+- **CLV proxy:** Avg Order Value × Frequency × Recency-decay factor, ranks individual customers
+- **Cohort retention heatmap:** % of each acquisition cohort active in subsequent months
+- **Geographic distribution:** segment composition across Brazilian states
+- **Category mix per segment:** what each segment buys most
 
 ### Business Recommendations
 Each segment was assigned a strategy (retain, convert, win-back, deprioritize), a conservative conversion-rate assumption, and an R$ opportunity calculation. Total addressable opportunity = R$ 1.88M.
@@ -64,11 +64,11 @@ Each segment was assigned a strategy (retain, convert, win-back, deprioritize), 
 
 ```
 .
-├── OLIST_RFM_v2.ipynb     # Main notebook — end-to-end pipeline
+├── OLIST_RFM_v2.ipynb     # Main notebook, end-to-end pipeline
 ├── README.md              # This file
 ├── requirements.txt       # Python dependencies
 ├── .gitignore
-└── Dataset/               # NOT in repo — download from Kaggle (see below)
+└── Dataset/               # NOT in repo. Download from Kaggle (see below)
 ```
 
 ---
@@ -126,7 +126,7 @@ Then run all cells (Cell → Run All). The notebook executes end-to-end without 
 
 ## Acknowledgments
 
-- Methodology reference: [RFM Analysis Using Python — GeeksforGeeks](https://www.geeksforgeeks.org/data-analysis/rfm-analysis-analysis-using-python/)
+- Methodology reference: [RFM Analysis Using Python (GeeksforGeeks)](https://www.geeksforgeeks.org/data-analysis/rfm-analysis-analysis-using-python/)
 - Dataset: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) (CC BY-NC-SA 4.0)
 - 11-segment RFM framework: standard across Putler, Optimove, Mailchimp segmentation literature
 
