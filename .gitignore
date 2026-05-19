@@ -1,4 +1,4 @@
-# Data files (download from Kaggle — see README)
+# Data files (download from Kaggle, see README)
 Dataset/
 
 # Generated outputs
@@ -35,8 +35,12 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Personal study notes
+# Drafts (kept private)
+LINKEDIN_POST.md
+
+# Personal study notes (kept private)
 WALKTHROUGH.md
+PROJECT_NOTES.md
 
 # Old Notebook
 OLIST Project.ipynb
